@@ -1,4 +1,4 @@
-import { Request, Response } from "express"
+import { NextFunction, Request, Response } from "express"
 
 import {
   IListMoves,
@@ -7,6 +7,7 @@ import {
 } from "../interfaces/movies.interfaces"
 import { createMovieService } from "../services/createMovie.service"
 import { readMoviesService } from "../services/readMovies.service"
+import { updateMovieService } from "../services/updateMovies.service"
 
 const createMoviesController = async (
   req: Request,
@@ -27,4 +28,16 @@ const readMoviesController = async (
   return res.status(200).json(movies)
 }
 
-export { createMoviesController, readMoviesController }
+const updateMoviesController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const movieData = req.body
+  const movieId = Number(req.params.id)
+
+  const movie = await updateMovieService(movieData, movieId)
+
+  return res.status(200).json(movie)
+}
+
+export { createMoviesController, readMoviesController, updateMoviesController }

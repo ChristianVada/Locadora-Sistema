@@ -11,16 +11,18 @@ const ensureNameNotExists = async (
 ): Promise<Response | void> => {
   const movieName = req.body.name
 
-  const movieSearch: Repository<Movie> = AppDataSource.getRepository(Movie)
+  if (movieName) {
+    const movieSearch: Repository<Movie> = AppDataSource.getRepository(Movie)
 
-  const movie: Movie | null = await movieSearch.findOne({
-    where: {
-      name: movieName,
-    },
-  })
+    const movie: Movie | null = await movieSearch.findOne({
+      where: {
+        name: movieName,
+      },
+    })
 
-  if (movie) {
-    throw new AppError("Movie already exists", 409)
+    if (movie) {
+      throw new AppError("Movie already exists.", 409)
+    }
   }
 
   return next()

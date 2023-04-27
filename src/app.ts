@@ -10,4 +10,4 @@ app.use("/movies", movieRoutes)
 
 app.use(handleErros)
 
-export { app }
+export default app

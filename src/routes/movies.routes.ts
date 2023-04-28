@@ -1,6 +1,7 @@
 import { Router } from "express"
 import {
   createMoviesController,
+  deleteMoviesController,
   readMoviesController,
   updateMoviesController,
 } from "../controllers/movies.controllers"
@@ -28,6 +29,6 @@ movieRoutes.patch(
   updateMoviesController
 )
 
-movieRoutes.delete("/:id")
+movieRoutes.delete("/:id", ensureIdExists, deleteMoviesController)
 
 export { movieRoutes }

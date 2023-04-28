@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express"
 
 import {
   IListMoves,
+  IMoviesPagination,
   IRequestMovie,
   IResponseMovie,
 } from "../interfaces/movies.interfaces"
@@ -23,7 +24,10 @@ const readMoviesController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const movies: IListMoves = await readMoviesService()
+  const page: number | undefined = Number(req.query.page)
+  const perPage: number | undefined = Number(req.query.perPage)
+
+  const movies: IMoviesPagination = await readMoviesService(page, perPage)
 
   return res.status(200).json(movies)
 }

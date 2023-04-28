@@ -15,4 +15,17 @@ type IListMoves = z.infer<typeof listMoviesSchema>
 
 type IUpdateMovie = DeepPartial<IRequestMovie>
 
-export { IResponseMovie, IRequestMovie, IListMoves, IUpdateMovie }
+interface IMoviesPagination {
+  prevPage: string | null
+  nextPage: string | null
+  count: number
+  data: IListMoves
+}
+
+export {
+  IResponseMovie,
+  IRequestMovie,
+  IListMoves,
+  IUpdateMovie,
+  IMoviesPagination,
+}

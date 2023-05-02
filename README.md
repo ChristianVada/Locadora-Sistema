@@ -2,11 +2,7 @@
 
 # Introdução
 
-Há alguns dias você recebeu uma demanda para elaborar a API de um serviço de locação de filmes. Porém a forma com que você executou e as ferramentas que utilizou não agradaram o nosso cliente... É... ele é exigente.
-
-Portanto, agora você precisará reescrever esse projeto com outras tecnologias. Além disso o cliente adicionou algumas novas regras de negócio ao projeto.
-
-Bora para esse desafio?!
+O objetivo é elaborar uma API que será utilizada em uma plataforma de streaming. Essa API terá o intuito de gerenciar a coleção de filmes disponíveis. Abaixo estão todas as regras de negócio definidas pelo cliente, tanto para a entrega quanto para a aplicação.
 
 # Regras da entrega
 
